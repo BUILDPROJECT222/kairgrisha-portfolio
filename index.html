@@ -109,7 +109,7 @@
     .token .info h3 { font-size: 20px; }
     .token .info p { color: var(--muted); font-size: 14px; }
     .ca {
-      display: flex; gap: 8px; align-items: center; margin-top: 12px;
+      display: flex; gap: 8px; align-items: center; margin-top: 8px;
       background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px 8px 8px 14px;
     }
     .ca code { flex: 1; font-size: 13px; color: var(--text); overflow-wrap: anywhere; }
@@ -197,8 +197,7 @@
                onerror="this.outerHTML=document.getElementById('pf-fallback').innerHTML" />
         </div>
         <div class="info">
-          <h3>Launching on pump.fun</h3>
-          <p id="ca-status">Contract address will be revealed at launch. Stay tuned on X.</p>
+          <h3>CA</h3>
           <div class="ca">
             <code id="ca-text">Coming soon…</code>
             <button id="ca-copy" type="button" disabled>Copy CA</button>
@@ -246,7 +245,6 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     if (CA) {
       document.getElementById('ca-text').textContent = CA;
-      document.getElementById('ca-status').textContent = 'Live now on pump.fun.';
       document.getElementById('pf-link').href = 'https://pump.fun/coin/' + CA;
       const btn = document.getElementById('ca-copy');
       btn.disabled = false;
