@@ -16,5 +16,5 @@ The site will be live at `https://<username>.github.io/kairgrisha-portfolio/`.
 
 ## Customize
 
-- **Token CA:** shown at the top of the page (`#ca-text` and the pump.fun link in `index.html`).
+- **Token CA:** shown in the Duel Club card (`#ca-text` in `index.html`).
 - Edit `index.html`: replace the placeholder text in **About** and **What I Do**.
