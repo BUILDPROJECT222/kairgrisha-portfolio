@@ -72,7 +72,6 @@
     h2 { font-size: 28px; margin-bottom: 24px; }
     .about p { color: var(--muted); font-size: 17px; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
     .card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 14px; padding: 22px; transition: border-color .2s, transform .2s;
@@ -93,7 +92,9 @@
     }
 
     .card.featured { border-color: var(--accent); background: linear-gradient(160deg, rgba(124,92,255,.14), var(--card) 60%); }
-    .card .visit { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--accent-2); }
+    .card.project { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding: 28px; }
+    .card.project h3 { font-size: 22px; }
+    .card.project .btn { flex-shrink: 0; }
 
     .token {
       display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
@@ -127,6 +128,7 @@
     @media (max-width: 560px) {
       nav ul { gap: 14px; }
       header { padding: 60px 0 50px; }
+      .card.project .btn, .token .btn-pump { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -175,24 +177,14 @@
   <section id="projects">
     <div class="wrap">
       <h2>Projects</h2>
-      <div class="grid">
-        <a class="card featured" href="https://duel-club.com/" target="_blank" rel="noopener">
+      <a class="card featured project" href="https://duel-club.com/" target="_blank" rel="noopener">
+        <div>
           <h3>Duel Club</h3>
           <p>A website I built and launched. Check it out live.</p>
           <div class="tags"><span class="tag">Live</span><span class="tag">Web</span></div>
-          <span class="visit">duel-club.com ↗</span>
-        </a>
-        <div class="card">
-          <h3>Project Two</h3>
-          <p>A short description of what this project does and why it matters.</p>
-          <div class="tags"><span class="tag">AI</span><span class="tag">Tools</span></div>
         </div>
-        <div class="card">
-          <h3>Project Three</h3>
-          <p>A short description of what this project does and why it matters.</p>
-          <div class="tags"><span class="tag">Content</span><span class="tag">Design</span></div>
-        </div>
-      </div>
+        <span class="btn btn-primary">Visit duel-club.com ↗</span>
+      </a>
     </div>
   </section>
 
