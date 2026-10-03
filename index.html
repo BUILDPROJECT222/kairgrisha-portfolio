@@ -96,19 +96,8 @@
     .card.project h3 { font-size: 22px; }
     .card.project .btn { flex-shrink: 0; }
 
-    .token {
-      display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
-      max-width: 640px; margin: 0 auto 28px; text-align: left;
-      background: var(--card); border: 1px solid var(--accent); border-radius: 16px; padding: 16px;
-    }
-    .token .logo-duel {
-      width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; overflow: hidden;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      display: grid; place-items: center; font-weight: 800; font-size: 13px; letter-spacing: .5px;
-    }
-    .token .logo-duel img { width: 100%; height: 100%; object-fit: cover; }
-    .token .info { flex: 1; min-width: 220px; }
-    .token .label { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 1px; }
+    .card.project .ca-wrap { flex-basis: 100%; }
+    .card.project .label { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 1px; }
     .ca {
       display: flex; gap: 8px; align-items: center; margin-top: 8px;
       background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px 8px 8px 14px;
@@ -119,7 +108,6 @@
       background: var(--text); color: var(--bg); cursor: pointer;
     }
     .ca button:disabled { opacity: .4; cursor: not-allowed; }
-    .btn-pump { background: #54d17a; color: #07140b; }
 
     .contact { text-align: center; }
     .contact p { color: var(--muted); margin-bottom: 24px; }
@@ -129,8 +117,7 @@
     @media (max-width: 560px) {
       nav ul { gap: 14px; }
       header { padding: 60px 0 50px; }
-      .card.project .btn, .token .btn-pump { width: 100%; justify-content: center; }
-      .token { margin-bottom: 24px; }
+      .card.project .btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -154,20 +141,6 @@
       </div>
       <h1>Hi, I'm <span>Kair Grisha</span></h1>
       <p>Builder, creator, and explorer of the internet. I share ideas, experiments, and things I'm working on over on X.</p>
-      <div class="token" id="token">
-        <div class="logo-duel" id="duel-logo">
-          <img src="https://duel-club.com/favicon.ico" alt="Duel Club logo"
-               onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=duel-club.com&sz=128';}else{this.remove();document.getElementById('duel-logo').textContent='DUEL';}" />
-        </div>
-        <div class="info">
-          <div class="label">CA</div>
-          <div class="ca">
-            <code id="ca-text">8gJzk36pGgNg8jJoMiEo5DcofD7pvW4XJtGKXjGWpump</code>
-            <button id="ca-copy" type="button">Copy CA</button>
-          </div>
-        </div>
-        <a class="btn btn-pump" href="https://pump.fun/coin/8gJzk36pGgNg8jJoMiEo5DcofD7pvW4XJtGKXjGWpump" target="_blank" rel="noopener">pump.fun ↗</a>
-      </div>
       <div class="btns">
         <a class="btn btn-primary" href="https://x.com/KairGrisha" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -192,14 +165,21 @@
   <section id="projects">
     <div class="wrap">
       <h2>Projects</h2>
-      <a class="card featured project" href="https://duel-club.com/" target="_blank" rel="noopener">
+      <div class="card featured project">
         <div>
           <h3>Duel Club</h3>
           <p>A website I built and launched. Check it out live.</p>
           <div class="tags"><span class="tag">Live</span><span class="tag">Web</span></div>
         </div>
-        <span class="btn btn-primary">Visit duel-club.com ↗</span>
-      </a>
+        <a class="btn btn-primary" href="https://duel-club.com/" target="_blank" rel="noopener">Visit duel-club.com ↗</a>
+        <div class="ca-wrap">
+          <div class="label">CA</div>
+          <div class="ca">
+            <code id="ca-text">8gJzk36pGgNg8jJoMiEo5DcofD7pvW4XJtGKXjGWpump</code>
+            <button id="ca-copy" type="button">Copy CA</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
