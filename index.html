@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KairGrisha — Portfolio</title>
+  <meta name="description" content="Portfolio of KairGrisha — builder, creator, and web3 enthusiast." />
+  <meta property="og:title" content="KairGrisha — Portfolio" />
+  <meta property="og:description" content="Builder, creator, and web3 enthusiast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --card: #15151c;
+      --border: #26262f;
+      --text: #ececf1;
+      --muted: #9a9aa8;
+      --accent: #7c5cff;
+      --accent-2: #22d3ee;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(11, 11, 15, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+    nav .logo { font-weight: 800; }
+    nav ul { display: flex; gap: 22px; list-style: none; font-size: 14px; color: var(--muted); }
+    nav ul a:hover { color: var(--text); }
+
+    header { padding: 90px 0 70px; text-align: center; }
+    .avatar {
+      width: 120px; height: 120px; border-radius: 50%;
+      margin: 0 auto 24px;
+      border: 3px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid; place-items: center;
+      font-size: 40px; font-weight: 800; overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    h1 { font-size: clamp(34px, 6vw, 54px); font-weight: 800; letter-spacing: -1px; }
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    header p { color: var(--muted); font-size: 18px; max-width: 560px; margin: 14px auto 30px; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      transition: transform .15s, opacity .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--text); color: var(--bg); }
+    .btn-ghost { border: 1px solid var(--border); }
+
+    section { padding: 60px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 28px; margin-bottom: 24px; }
+    .about p { color: var(--muted); font-size: 17px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px; transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .card h3 { font-size: 18px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 14px; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+    .tag {
+      font-size: 12px; padding: 3px 10px; border-radius: 999px;
+      background: rgba(124, 92, 255, 0.15); color: #b9a8ff;
+    }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skills span {
+      padding: 8px 16px; border: 1px solid var(--border); border-radius: 10px;
+      background: var(--card); font-size: 14px;
+    }
+
+    .card.featured { border-color: var(--accent); background: linear-gradient(160deg, rgba(124,92,255,.14), var(--card) 60%); }
+    .card .visit { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--accent-2); }
+
+    .token {
+      display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px;
+    }
+    .token .logo-pf {
+      width: 72px; height: 72px; border-radius: 18px; flex-shrink: 0;
+      background: #0e1a12; border: 1px solid #1f3a28; display: grid; place-items: center; overflow: hidden;
+    }
+    .token .logo-pf img, .token .logo-pf svg { width: 52px; height: 52px; }
+    .token .info { flex: 1; min-width: 220px; }
+    .token .info h3 { font-size: 20px; }
+    .token .info p { color: var(--muted); font-size: 14px; }
+    .ca {
+      display: flex; gap: 8px; align-items: center; margin-top: 12px;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px 8px 8px 14px;
+    }
+    .ca code { flex: 1; font-size: 13px; color: var(--text); overflow-wrap: anywhere; }
+    .ca button {
+      border: 0; border-radius: 8px; padding: 8px 14px; font: inherit; font-size: 13px; font-weight: 600;
+      background: var(--text); color: var(--bg); cursor: pointer;
+    }
+    .ca button:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-pump { background: #54d17a; color: #07140b; }
+
+    .contact { text-align: center; }
+    .contact p { color: var(--muted); margin-bottom: 24px; }
+
+    footer { padding: 30px 0; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+
+    @media (max-width: 560px) {
+      nav ul { gap: 14px; }
+      header { padding: 60px 0 50px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a href="#" class="logo">KairGrisha</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#token">Token</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <div class="avatar" id="avatar">
+        <img src="https://unavatar.io/x/KairGrisha" alt="KairGrisha avatar"
+             onerror="this.remove(); document.getElementById('avatar').textContent='K';" />
+      </div>
+      <h1>Hi, I'm <span>Kair Grisha</span></h1>
+      <p>Builder, creator, and explorer of the internet. I share ideas, experiments, and things I'm working on over on X.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://x.com/KairGrisha" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Follow @KairGrisha
+        </a>
+        <a class="btn btn-ghost" href="https://duel-club.com/" target="_blank" rel="noopener">Visit Duel Club ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p>
+        I'm Kair Grisha — I enjoy building things, learning in public, and connecting with people
+        who are shipping cool stuff. My interests span tech, crypto/web3, AI, and community building.
+        Always open to collaborations and new ideas.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid">
+        <a class="card featured" href="https://duel-club.com/" target="_blank" rel="noopener">
+          <h3>Duel Club</h3>
+          <p>A website I built and launched. Check it out live.</p>
+          <div class="tags"><span class="tag">Live</span><span class="tag">Web</span></div>
+          <span class="visit">duel-club.com ↗</span>
+        </a>
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>A short description of what this project does and why it matters.</p>
+          <div class="tags"><span class="tag">AI</span><span class="tag">Tools</span></div>
+        </div>
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>A short description of what this project does and why it matters.</p>
+          <div class="tags"><span class="tag">Content</span><span class="tag">Design</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="token">
+    <div class="wrap">
+      <h2>Token</h2>
+      <div class="token">
+        <div class="logo-pf" id="pf-logo">
+          <img src="https://www.google.com/s2/favicons?domain=pump.fun&sz=128" alt="pump.fun logo"
+               onerror="this.outerHTML=document.getElementById('pf-fallback').innerHTML" />
+        </div>
+        <div class="info">
+          <h3>Launching on pump.fun</h3>
+          <p id="ca-status">Contract address will be revealed at launch. Stay tuned on X.</p>
+          <div class="ca">
+            <code id="ca-text">Coming soon…</code>
+            <button id="ca-copy" type="button" disabled>Copy CA</button>
+          </div>
+        </div>
+        <a class="btn btn-pump" id="pf-link" href="https://pump.fun/" target="_blank" rel="noopener">View on pump.fun ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <template id="pf-fallback">
+    <svg viewBox="0 0 64 64" aria-label="pump.fun logo"><g transform="rotate(-45 32 32)"><rect x="8" y="20" width="48" height="24" rx="12" fill="#fff"/><path d="M32 20h12a12 12 0 0 1 0 24H32z" fill="#54d17a"/><rect x="8" y="20" width="48" height="24" rx="12" fill="none" stroke="#07140b" stroke-width="3"/></g></svg>
+  </template>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>What I Do</h2>
+      <div class="skills">
+        <span>Content Creation</span>
+        <span>Community Building</span>
+        <span>Web3 / Crypto</span>
+        <span>AI Tools</span>
+        <span>Product Ideas</span>
+        <span>Research</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Let's Connect</h2>
+      <p>The fastest way to reach me is a DM on X.</p>
+      <a class="btn btn-primary" href="https://x.com/KairGrisha" target="_blank" rel="noopener">Message me on X</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> KairGrisha · Built with plain HTML &amp; CSS</div>
+  </footer>
+
+  <script>
+    // Paste the token contract address here at launch:
+    const CA = "";
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if (CA) {
+      document.getElementById('ca-text').textContent = CA;
+      document.getElementById('ca-status').textContent = 'Live now on pump.fun.';
+      document.getElementById('pf-link').href = 'https://pump.fun/coin/' + CA;
+      const btn = document.getElementById('ca-copy');
+      btn.disabled = false;
+      btn.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(CA); btn.textContent = 'Copied!'; }
+        catch { btn.textContent = 'Copy failed'; }
+        setTimeout(() => { btn.textContent = 'Copy CA'; }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
