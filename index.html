@@ -97,17 +97,18 @@
     .card.project .btn { flex-shrink: 0; }
 
     .token {
-      display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
-      background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px;
+      display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+      max-width: 640px; margin: 0 auto 28px; text-align: left;
+      background: var(--card); border: 1px solid var(--accent); border-radius: 16px; padding: 16px;
     }
-    .token .logo-pf {
-      width: 72px; height: 72px; border-radius: 18px; flex-shrink: 0;
-      background: #0e1a12; border: 1px solid #1f3a28; display: grid; place-items: center; overflow: hidden;
+    .token .logo-duel {
+      width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; overflow: hidden;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid; place-items: center; font-weight: 800; font-size: 13px; letter-spacing: .5px;
     }
-    .token .logo-pf img, .token .logo-pf svg { width: 52px; height: 52px; }
+    .token .logo-duel img { width: 100%; height: 100%; object-fit: cover; }
     .token .info { flex: 1; min-width: 220px; }
-    .token .info h3 { font-size: 20px; }
-    .token .info p { color: var(--muted); font-size: 14px; }
+    .token .label { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 1px; }
     .ca {
       display: flex; gap: 8px; align-items: center; margin-top: 8px;
       background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 8px 8px 8px 14px;
@@ -129,6 +130,7 @@
       nav ul { gap: 14px; }
       header { padding: 60px 0 50px; }
       .card.project .btn, .token .btn-pump { width: 100%; justify-content: center; }
+      .token { margin-bottom: 24px; }
     }
   </style>
 </head>
@@ -139,7 +141,6 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#token">Token</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -153,6 +154,20 @@
       </div>
       <h1>Hi, I'm <span>Kair Grisha</span></h1>
       <p>Builder, creator, and explorer of the internet. I share ideas, experiments, and things I'm working on over on X.</p>
+      <div class="token" id="token">
+        <div class="logo-duel" id="duel-logo">
+          <img src="https://duel-club.com/favicon.ico" alt="Duel Club logo"
+               onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=duel-club.com&sz=128';}else{this.remove();document.getElementById('duel-logo').textContent='DUEL';}" />
+        </div>
+        <div class="info">
+          <div class="label">CA</div>
+          <div class="ca">
+            <code id="ca-text">8gJzk36pGgNg8jJoMiEo5DcofD7pvW4XJtGKXjGWpump</code>
+            <button id="ca-copy" type="button">Copy CA</button>
+          </div>
+        </div>
+        <a class="btn btn-pump" href="https://pump.fun/coin/8gJzk36pGgNg8jJoMiEo5DcofD7pvW4XJtGKXjGWpump" target="_blank" rel="noopener">pump.fun ↗</a>
+      </div>
       <div class="btns">
         <a class="btn btn-primary" href="https://x.com/KairGrisha" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -188,30 +203,6 @@
     </div>
   </section>
 
-  <section id="token">
-    <div class="wrap">
-      <h2>Token</h2>
-      <div class="token">
-        <div class="logo-pf" id="pf-logo">
-          <img src="https://www.google.com/s2/favicons?domain=pump.fun&sz=128" alt="pump.fun logo"
-               onerror="this.outerHTML=document.getElementById('pf-fallback').innerHTML" />
-        </div>
-        <div class="info">
-          <h3>CA</h3>
-          <div class="ca">
-            <code id="ca-text">Coming soon…</code>
-            <button id="ca-copy" type="button" disabled>Copy CA</button>
-          </div>
-        </div>
-        <a class="btn btn-pump" id="pf-link" href="https://pump.fun/" target="_blank" rel="noopener">View on pump.fun ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <template id="pf-fallback">
-    <svg viewBox="0 0 64 64" aria-label="pump.fun logo"><g transform="rotate(-45 32 32)"><rect x="8" y="20" width="48" height="24" rx="12" fill="#fff"/><path d="M32 20h12a12 12 0 0 1 0 24H32z" fill="#54d17a"/><rect x="8" y="20" width="48" height="24" rx="12" fill="none" stroke="#07140b" stroke-width="3"/></g></svg>
-  </template>
-
   <section id="skills">
     <div class="wrap">
       <h2>What I Do</h2>
@@ -239,21 +230,13 @@
   </footer>
 
   <script>
-    // Paste the token contract address here at launch:
-    const CA = "8gJzk36pGgNg8jJoMiEo5DcofD7pvW4XJtGKXjGWpump";
-
     document.getElementById('year').textContent = new Date().getFullYear();
-    if (CA) {
-      document.getElementById('ca-text').textContent = CA;
-      document.getElementById('pf-link').href = 'https://pump.fun/coin/' + CA;
-      const btn = document.getElementById('ca-copy');
-      btn.disabled = false;
-      btn.addEventListener('click', async () => {
-        try { await navigator.clipboard.writeText(CA); btn.textContent = 'Copied!'; }
-        catch { btn.textContent = 'Copy failed'; }
-        setTimeout(() => { btn.textContent = 'Copy CA'; }, 1500);
-      });
-    }
+    const btn = document.getElementById('ca-copy');
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(document.getElementById('ca-text').textContent); btn.textContent = 'Copied!'; }
+      catch { btn.textContent = 'Copy failed'; }
+      setTimeout(() => { btn.textContent = 'Copy CA'; }, 1500);
+    });
   </script>
 </body>
 </html>
